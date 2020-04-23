@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Tyler Clark",
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.7.0",
+    "@reach/router": "^1.3.3",
     "gatsby": "^2.20.25",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-feed": "^2.4.3",
