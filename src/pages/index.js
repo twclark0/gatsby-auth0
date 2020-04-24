@@ -1,42 +1,34 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const influencers = data.allAirtable.nodes
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+      <SEO title="All Influencers" />
+      {influencers.map((node) => {
         return (
-          <article key={node.fields.slug}>
+          <article key={node.recordId}>
             <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
+              <h3>
+                <a
+                  href={"https://www.twitter.com/" + node.data.handle}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {node.data.name}
+                </a>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <p>{node.data.description}</p>
+              {node.data.tags.map((tag, index) => (
+                <span key={index}>{tag}</span>
+              ))}
             </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
           </article>
         )
       })}
@@ -53,18 +45,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
+    allAirtable {
+      nodes {
+        recordId
+        data {
+          name
+          handle
+          tags
+          description
         }
       }
     }
