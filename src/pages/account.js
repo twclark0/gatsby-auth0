@@ -20,9 +20,6 @@ const Account = () => {
         <h1>Account</h1>
         <Navigation />
         <Profile>
-          <button type="button" onClick={() => logout()}>
-            Logout
-          </button>
           <Router>
             <MyAccount path="/account/" />
           </Router>
