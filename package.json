@@ -1,5 +1,5 @@
 {
-  "name": "Gatsby + Auth0",
+  "name": "Gatsby-Auth0",
   "private": true,
   "description": "A starter for a blog powered by Gatsby and Markdown",
   "version": "0.1.0",
@@ -35,7 +35,7 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
-    "prettier": "2.0.4"
+    "prettier": "^2.0.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
