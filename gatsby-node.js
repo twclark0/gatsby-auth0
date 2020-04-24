@@ -62,3 +62,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+const clientRoutes = ["account"]
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  for (const route of clientRoutes) {
+    const regexRoute = new RegExp(`/${route}`)
+    const path = `/${route}/*`
+    if (page.path.match(regexRoute)) {
+      page.matchPath = path
+      createPage(page)
+    }
+  }
+}
