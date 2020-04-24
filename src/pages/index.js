@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Navigation } from "../components/nav-bar"
+import InfluencerStyles from "../styles/influencer.module.css"
 
 const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -13,30 +14,39 @@ const Index = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All Influencers" />
       <Navigation />
+      <div className={InfluencerStyles.list}>
+        {influencers.map((node) => {
+          return (
+            <article
+              key={node.recordId}
+              className={InfluencerStyles.influencer}
+            >
+              <header>
+                <h3 className={InfluencerStyles.name}>
+                  {node.data.name}{" "}
+                  <a
+                    href={"https://www.twitter.com/" + node.data.handle}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className={InfluencerStyles.handle}
+                  >
+                    @{node.data.handle}
+                  </a>
+                </h3>
+                <p className={InfluencerStyles.description}>
+                  {node.data.description}
+                </p>
 
-      {influencers.map((node) => {
-        return (
-          <article key={node.recordId}>
-            <header>
-              <h3>
-                <a
-                  href={"https://www.twitter.com/" + node.data.handle}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {node.data.name}
-                </a>
-              </h3>
-              <p>{node.data.description}</p>
-              {node.data.tags.map((tag, index) => (
-                <span className="tag" key={index}>
-                  {tag}
-                </span>
-              ))}
-            </header>
-          </article>
-        )
-      })}
+                {node.data.tags.map((tag, index) => (
+                  <small className={InfluencerStyles.tag} key={index}>
+                    {tag}
+                  </small>
+                ))}
+              </header>
+            </article>
+          )
+        })}
+      </div>
     </Layout>
   )
 }

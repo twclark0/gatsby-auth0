@@ -1,0 +1,33 @@
+.list {
+  margin: 50px auto;
+  max-width: 600px;
+}
+
+.influencer {
+  border-radius: 4px;
+  border: 1px solid grey;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-weight: bold;
+  margin: 0px;
+  font-size: 18px;
+}
+
+.handle,
+.handle:visited {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 300;
+}
+
+.description {
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.tag {
+  margin-right: 10px;
+}
