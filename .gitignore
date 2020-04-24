@@ -2,3 +2,7 @@ node_modules/
 .cache/
 public
 .DS_Store
+
+# dotenv environment variables file
+.env
+.env.*
