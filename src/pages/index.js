@@ -26,7 +26,9 @@ const BlogIndex = ({ data, location }) => {
               </h3>
               <p>{node.data.description}</p>
               {node.data.tags.map((tag, index) => (
-                <span key={index}>{tag}</span>
+                <span className="tag" key={index}>
+                  {tag}
+                </span>
               ))}
             </header>
           </article>

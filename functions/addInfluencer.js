@@ -7,7 +7,7 @@ const table = base(process.env.AIRTABLE_TABLE_NAME)
 
 exports.handler = async (event, context, callback) => {
   const body = JSON.parse(event.body)
-
+  console.log(body)
   let statusCode = 200
   let returnBody = {}
   if (!body.name || !body.handle || !body.tags) {
