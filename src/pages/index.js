@@ -3,14 +3,17 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Navigation } from "../components/nav-bar"
 
-const BlogIndex = ({ data, location }) => {
+const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const influencers = data.allAirtable.nodes
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All Influencers" />
+      <Navigation />
+
       {influencers.map((node) => {
         return (
           <article key={node.recordId}>
@@ -38,7 +41,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
