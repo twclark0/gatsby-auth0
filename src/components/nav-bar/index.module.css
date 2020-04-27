@@ -1,0 +1,19 @@
+.authButton {
+  padding: 7px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+}
+.login {
+  background: #e3d0bf;
+  color: #000;
+}
+.logout {
+  background: #ffc600;
+  color: #000;
+}
+.account {
+  color: #e3d0bf;
+  margin-left: 14px;
+}

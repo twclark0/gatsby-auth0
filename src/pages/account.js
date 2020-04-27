@@ -13,7 +13,7 @@ const Profile = ({ children }) => {
 }
 
 const Account = () => {
-  const { logout, isAuthenticated, user } = useAuth0()
+  const { isAuthenticated, user } = useAuth0()
   return (
     <Layout>
       <ProtectedRoute>
