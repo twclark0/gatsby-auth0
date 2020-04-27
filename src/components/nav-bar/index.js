@@ -6,7 +6,6 @@ export const Navigation = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0()
   return (
     <nav>
-      <Link to="/">Home</Link>
       {!isAuthenticated && (
         <button
           onClick={() =>
