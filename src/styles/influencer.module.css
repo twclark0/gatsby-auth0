@@ -1,7 +1,7 @@
 .list {
   margin: 50px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 2rem;
 }
 
@@ -41,4 +41,5 @@
   color: white;
   padding: 3px 5px;
   border-radius: 3px;
+  cursor: pointer;
 }
