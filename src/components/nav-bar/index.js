@@ -25,7 +25,10 @@ export const Navigation = () => {
           >
             Log out
           </button>
-          <Link className={css.account} to="/account">
+          <Link className={css.navItem} to="/addInfluencer">
+            Add Influencer
+          </Link>
+          <Link className={css.navItem} to="/account">
             My Account
           </Link>
         </>
