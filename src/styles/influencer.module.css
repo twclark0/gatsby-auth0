@@ -43,11 +43,36 @@
   font-size: 15px;
 }
 
+.tagsList {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .tag {
-  margin-right: 5px;
+  margin: 5px 3px;
   background-color: #eb4471;
   color: white;
   padding: 3px 5px;
   border-radius: 3px;
   cursor: pointer;
+  font-size: 12px;
+}
+
+.tagSelected {
+  color: white;
+  margin: 5px 3px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+  background-color: #eb4471;
+  transform: translateY(-2px);
+}
+
+.tagSelected::after {
+  content: "x";
+  margin: 0 0 0 7px;
+  color: hsl(344, 85%, 30%);
 }

@@ -37,15 +37,18 @@ const Index = ({ data, location }) => {
       <p className="subtitle">
         A list of developers on Twitter that you should follow!
       </p>
-      {allTags.map((tag, id) => (
-        <span
-          className={InfluencerStyles.tag}
-          key={id}
-          onClick={() => selectTag(tag)}
-        >
-          {tag}
-        </span>
-      ))}
+      <div className="tags-list">
+        <h3>Filter by tag</h3>
+        {allTags.map((tag, id) => (
+          <span
+            className={InfluencerStyles.tag}
+            key={id}
+            onClick={() => selectTag(tag)}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
       <div className={InfluencerStyles.list}>
         {visibleInfluencers.map((node) => {
           return (
@@ -67,15 +70,17 @@ const Index = ({ data, location }) => {
                 <p className={InfluencerStyles.description}>
                   {node.data.description}
                 </p>
-                {node.data.tags.map((tag, index) => (
-                  <small
-                    className={InfluencerStyles.tag}
-                    key={index}
-                    onClick={() => selectTag(tag)}
-                  >
-                    {tag}
-                  </small>
-                ))}
+                <div className="tags-list">
+                  {node.data.tags.map((tag, index) => (
+                    <small
+                      className={InfluencerStyles.tag}
+                      key={index}
+                      onClick={() => selectTag(tag)}
+                    >
+                      {tag}
+                    </small>
+                  ))}
+                </div>
               </header>
             </article>
           )
