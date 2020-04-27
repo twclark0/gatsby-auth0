@@ -1,26 +1,33 @@
 .list {
   margin: 50px auto;
-  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 2rem;
 }
 
 .influencer {
   border-radius: 4px;
-  border: 1px solid grey;
-  padding: 5px 15px;
+  border: 2px solid grey;
+  padding: 10px 20px;
   margin-bottom: 10px;
 }
 
 .name {
-  font-weight: bold;
   margin: 0px;
-  font-size: 18px;
+  font-weight: 32px;
 }
 
-.handle,
-.handle:visited {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.5);
+.name > a,
+.name > a:visited {
+  font-weight: bold;
   font-weight: 300;
+  color: white;
+  font-style: italic;
+}
+
+.handle {
+  margin-top: 0;
+  font-size: 14px;
 }
 
 .description {
@@ -30,4 +37,8 @@
 
 .tag {
   margin-right: 10px;
+  background-color: #eb4471;
+  color: white;
+  padding: 3px 5px;
+  border-radius: 3px;
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-
+import "../styles/app.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Navigation } from "../components/nav-bar"
@@ -14,6 +14,10 @@ const Index = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All Influencers" />
       <Navigation />
+      <h1 className="title">Influencers</h1>
+      <p className="subtitle">
+        A list of developers on Twitter that you should follow!
+      </p>
       <div className={InfluencerStyles.list}>
         {influencers.map((node) => {
           return (
@@ -23,20 +27,18 @@ const Index = ({ data, location }) => {
             >
               <header>
                 <h3 className={InfluencerStyles.name}>
-                  {node.data.name}{" "}
                   <a
                     href={"https://www.twitter.com/" + node.data.handle}
                     rel="noopener noreferrer"
                     target="_blank"
-                    className={InfluencerStyles.handle}
                   >
-                    @{node.data.handle}
+                    {node.data.name}
                   </a>
                 </h3>
+                <p className={InfluencerStyles.handle}>@{node.data.handle}</p>
                 <p className={InfluencerStyles.description}>
                   {node.data.description}
                 </p>
-
                 {node.data.tags.map((tag, index) => (
                   <small className={InfluencerStyles.tag} key={index}>
                     {tag}
