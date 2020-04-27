@@ -1,19 +1,13 @@
 import React from "react"
-
-const Layout = ({ children }) => {
+import ContainerStyles from "../styles/container.module.css"
+const Layout = ({ title, children }) => {
   return (
-    <>
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-      </div>
-    </>
+    <div className={ContainerStyles.container}>
+      <header>
+        <h1>{title}</h1>
+      </header>
+      <main>{children}</main>
+    </div>
   )
 }
 
