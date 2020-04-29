@@ -6,15 +6,10 @@ import "prismjs/themes/prism.css"
 
 import React from "react"
 import { Auth0Provider } from "./src/utils/auth"
+import { navigate } from "gatsby"
 
 const onRedirectCallback = (appState) => {
-  window.history.replaceState(
-    {},
-    document.title,
-    appState && appState.targetUrl
-      ? appState.targetUrl
-      : window.location.pathname
-  )
+  navigate(appState)
 }
 
 const Auth0Domain = process.env.AUTH0_DOMAIN || process.env.GATSBY_AUTH0_DOMAIN

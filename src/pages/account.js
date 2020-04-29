@@ -1,31 +1,25 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Router } from "@reach/router"
 import Layout from "../components/layout"
 import { useAuth0 } from "../utils/auth"
 import { ProtectedRoute } from "../components/protected-route"
 import { Navigation } from "../components/nav-bar"
 
-const MyAccount = () => <h2>Main Account Page</h2>
-
-const Profile = ({ children }) => {
-  const { loading, user } = useAuth0()
-  return loading || !user ? <p>Loading...</p> : <>{children}</>
-}
-
 const Account = () => {
-  const { isAuthenticated, user } = useAuth0()
+  const { loading, user, isAuthenticated } = useAuth0()
+  if (loading || !user) {
+    return <p>Loading...</p>
+  }
+
   return (
     <Layout>
       <ProtectedRoute>
-        <h1>Account</h1>
         <Navigation />
-        <Profile>
-          <Router>
-            <MyAccount path="/account/" />
-          </Router>
-          <p>Check out the user data supplied by Auth0, below:</p>
-          <pre>{isAuthenticated && JSON.stringify(user, null, 2)}</pre>
-        </Profile>
+        <h1 className="title">Main Account Page</h1>
+        <p className="subtitle">
+          Check out the user data supplied by Auth0, below:
+        </p>
+        <pre>{isAuthenticated && JSON.stringify(user, null, 2)}</pre>
       </ProtectedRoute>
     </Layout>
   )
