@@ -14,10 +14,8 @@ const Account = () => {
     <Layout>
       <ProtectedRoute>
         <Navigation />
-        <Profile>
-          <p>Check out the user data supplied by Auth0, below:</p>
-          <pre>{isAuthenticated && JSON.stringify(user, null, 2)}</pre>
-        </Profile>
+        <p>Check out the user data supplied by Auth0, below:</p>
+        <pre>{isAuthenticated && JSON.stringify(user, null, 2)}</pre>
       </ProtectedRoute>
     </Layout>
   )

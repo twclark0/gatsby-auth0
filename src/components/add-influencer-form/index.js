@@ -1,8 +1,10 @@
 import React, { useState } from "react"
 import formStyles from "./index.module.css"
 import InfluencerStyles from "../../styles/influencer.module.css"
+import { useAuth0 } from "../../utils/auth"
 
 export default function () {
+  const { getTokenSilently } = useAuth0()
   const [name, setName] = useState("")
   const [handle, setHandle] = useState("")
   const [description, setDescription] = useState("")
@@ -42,13 +44,20 @@ export default function () {
     e.preventDefault()
     const postBody = { name, description, handle, tags: selectedTags }
     try {
-      const res = await fetch("/.netlify/functions/addInfluencer", {
-        method: "post",
+      const token = await getTokenSilently()
+      const url = "/api/addInfluencer"
+      const res = await fetch(url, {
+        method: "POST",
         body: JSON.stringify(postBody),
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       })
-      console.log(res)
-      const data = await res.json()
-      clearInput()
+      if (res.status !== 200) {
+        console.error("Failed to submit talk")
+      } else {
+        clearInput()
+      }
     } catch (err) {
       console.error(err)
     }
