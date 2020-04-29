@@ -1,3 +1,4 @@
+import authConfig from "./auth_config.json"
 // custom typefaces
 import "typeface-montserrat"
 import "typeface-merriweather"
@@ -17,16 +18,13 @@ const onRedirectCallback = (appState) => {
   )
 }
 
-const Auth0Domain = process.env.AUTH0_DOMAIN
-const Auth0ClientID = process.env.AUTH0_CLIENT_ID
-const Auth0Audience = process.env.AUTH0_AUDIENCE
 export const wrapRootElement = ({ element }) => (
   <Auth0Provider
-    domain={Auth0Domain}
-    client_id={Auth0ClientID}
+    domain={authConfig.domain}
+    client_id={authConfig.clientId}
+    audience={authConfig.audience}
     redirect_uri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
-    audience={Auth0Audience}
   >
     {element}
   </Auth0Provider>
