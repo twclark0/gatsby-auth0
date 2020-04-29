@@ -42,6 +42,9 @@ const Index = ({ data, location }) => {
           className={InfluencerStyles.tag}
           key={id}
           onClick={() => selectTag(tag)}
+          role="button"
+          onKeyDown={() => selectTag(tag)}
+          tabIndex={0}
         >
           {tag}
         </span>
@@ -72,6 +75,9 @@ const Index = ({ data, location }) => {
                     className={InfluencerStyles.tag}
                     key={index}
                     onClick={() => selectTag(tag)}
+                    role="button"
+                    onKeyDown={() => selectTag(tag)}
+                    tabIndex={0}
                   >
                     {tag}
                   </small>

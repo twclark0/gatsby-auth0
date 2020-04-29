@@ -48,7 +48,6 @@ export default function AddInfluencer({ data, location }) {
         body: JSON.stringify(postBody),
       })
       console.log(res)
-      const data = await res.json()
       clearInput()
     } catch (err) {
       console.error(err)
@@ -92,6 +91,9 @@ export default function AddInfluencer({ data, location }) {
                 }
                 key={index}
                 onClick={() => toggleTag(tag)}
+                onKeyDown={() => toggleTag(tag)}
+                role="button"
+                tabIndex={0}
               >
                 {tag}
               </span>

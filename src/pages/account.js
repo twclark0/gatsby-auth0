@@ -4,8 +4,6 @@ import { useAuth0 } from "../utils/auth"
 import { ProtectedRoute } from "../components/protected-route"
 import { Navigation } from "../components/nav-bar"
 
-const MyAccount = () => <h2>Main Account Page</h2>
-
 const Profile = ({ children }) => {
   const { loading, user } = useAuth0()
   return loading || !user ? <p>Loading...</p> : <>{children}</>
