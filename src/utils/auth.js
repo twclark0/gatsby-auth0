@@ -28,7 +28,7 @@ export const Auth0Provider = ({
 }) => {
   const [isAuthenticated, setIsAuthenticated] = useState()
   const [user, setUser] = useState()
-  const [auth0Client, setAuth0] = useState()
+  const [auth0Client, setAuth0] = useState({})
   const [loading, setLoading] = useState(true)
   const [popupOpen, setPopupOpen] = useState(false)
 
@@ -53,7 +53,6 @@ export const Auth0Provider = ({
         const user = await auth0FromHook.getUser()
         setUser(user)
       }
-
       setLoading(false)
     }
     initAuth0()
