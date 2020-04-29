@@ -4,10 +4,10 @@ import { useAuth0 } from "../../utils/auth"
 import css from "./index.module.css"
 
 export const Navigation = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0()
+  const { isAuthenticated, loginWithRedirect, logout, loading } = useAuth0()
   return (
     <nav>
-      {!isAuthenticated && (
+      {!isAuthenticated && !loading && (
         <button
           className={`${css.authButton} ${css["login"]}`}
           onClick={() =>
