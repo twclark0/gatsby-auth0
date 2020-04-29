@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import "../styles/app.css"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Navigation } from "../components/nav-bar"
 import InfluencerStyles from "../styles/influencer.module.css"
 
 const Index = ({ data, location }) => {
@@ -31,7 +30,6 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All Influencers" />
-      <Navigation />
 
       <h1 className="title">Influencers</h1>
       <p className="subtitle">
