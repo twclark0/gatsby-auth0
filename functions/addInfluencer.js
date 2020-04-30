@@ -1,4 +1,4 @@
-require("dotenv").config({ path: ".env.development" })
+require("dotenv").config()
 const Airtable = require("airtable")
 var jwt = require("jsonwebtoken")
 const jwksClient = require("jwks-rsa")
