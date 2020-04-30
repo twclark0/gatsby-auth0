@@ -15,7 +15,9 @@ const Index = ({ data, location }) => {
   useEffect(() => {
     const tags = new Set()
     influencers.forEach((influencer) => {
-      influencer.data.tags.forEach((tag) => tags.add(tag))
+      if (influencer.data.tags) {
+        influencer.data.tags.forEach((tag) => tags.add(tag))
+      }
     })
     setAllTags(["all", ...Array.from(tags)])
   }, [influencers])
@@ -70,18 +72,21 @@ const Index = ({ data, location }) => {
                 <p className={InfluencerStyles.description}>
                   {node.data.description}
                 </p>
-                {node.data.tags.map((tag, index) => (
-                  <small
-                    className={InfluencerStyles.tag}
-                    key={index}
-                    onClick={() => selectTag(tag)}
-                    role="button"
-                    onKeyDown={() => selectTag(tag)}
-                    tabIndex={0}
-                  >
-                    {tag}
-                  </small>
-                ))}
+                <div className={InfluencerStyles.tagsList}>
+                  {node.data.tags &&
+                    node.data.tags.map((tag, index) => (
+                      <small
+                        className={InfluencerStyles.tag}
+                        key={index}
+                        onClick={() => selectTag(tag)}
+                        role="button"
+                        onKeyDown={() => selectTag(tag)}
+                        tabIndex={0}
+                      >
+                        {tag}
+                      </small>
+                    ))}
+                </div>
               </header>
             </article>
           )
