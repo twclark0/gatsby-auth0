@@ -25,6 +25,9 @@ export const Navigation = () => {
           >
             Log out
           </button>
+          <Link className={css.navItem} to="/">
+            Home
+          </Link>
           <Link className={css.navItem} to="/addInfluencer">
             Add Influencer
           </Link>
