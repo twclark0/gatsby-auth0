@@ -1,5 +1,5 @@
 [build]
-    functions = "functions"
+    functions = "lambda"
     Command = "npm run prod"
     publish = "public"
 [[redirects]]
