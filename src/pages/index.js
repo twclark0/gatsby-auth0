@@ -15,7 +15,9 @@ const Index = ({ data, location }) => {
   useEffect(() => {
     const tags = new Set()
     influencers.forEach((influencer) => {
-      influencer.data.tags.forEach((tag) => tags.add(tag))
+      if (influencer.data.tags) {
+        influencer.data.tags.forEach((tag) => tags.add(tag))
+      }
     })
     setAllTags(["all", ...Array.from(tags)])
   }, [influencers])
