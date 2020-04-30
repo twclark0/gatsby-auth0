@@ -1,5 +1,7 @@
 [build]
     functions = "functions"
+    Command = "npm run prod"
+    publish = "public"
 [[redirects]]
     from = "/api/*"
     to = "/.netlify/functions/:splat"
